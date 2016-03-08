@@ -10,5 +10,10 @@ package buyingsimulator;
  * @author Irene Argollo
  */
 public class Cliente {
-    
+   public enum Tipo {
+       ESTUDIANTE,
+       DEPORTISTA,
+       TURISTA_NACIONAL,
+       TURISTA_EXTRANGERO
+   }
 }
