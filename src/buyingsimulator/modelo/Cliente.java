@@ -5,6 +5,9 @@
  */
 package buyingsimulator.modelo;
 
+import java.awt.geom.Point2D;
+
+
 /**
  *
  * @author Irene Argollo
@@ -12,17 +15,31 @@ package buyingsimulator.modelo;
 public class Cliente {
 
     public enum Tipo {
-        ESTUDIANTE,
-        DEPORTISTA,
-        TURISTA_NACIONAL,
-        TURISTA_EXTRANGERO
+        ESTUDIANTE(new Rango(0d, 0.15)),
+        DEPORTISTA(new Rango(0.15, 0.35)),
+        TURISTA_NACIONAL(new Rango(0.35, 0.60)),
+        TURISTA_EXTRANGERO(new Rango(0.6, 0.35));
+        
+        private Rango r_normal;
+        
+        private Tipo(Rango p) {
+            r_normal = p;
+        }
+        
+        public Rango getR_Normal() {
+            return r_normal;
+        }
     }
-    private Tipo tipoCliente;
-    private int ci;
+    private final Tipo tipoCliente;
+    private final int ci;
 
     public Cliente(Tipo tipo, int ci) {
         tipoCliente = tipo;
         this.ci = ci;
+    }
+
+    public Tipo getTipo() {
+        return tipoCliente;
     }
 
     public void consultarPaquetes() {

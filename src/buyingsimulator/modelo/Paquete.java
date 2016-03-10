@@ -31,10 +31,28 @@ public class Paquete {
     };
 
     private Tipo tipoPaquete;
+    private long precio;
+    
+    public Paquete(Tipo tipo) {
+        tipoPaquete = tipo;
+    }
+    
+    public Tipo getTipo(){
+        return tipoPaquete;
+    }
+
+    public long getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(long precio) {
+        this.precio = precio;
+    }
 
     @Override
     public String toString() {
         return String.format("El paquete escogido es del tipo %s y la cantidad "
-                + "actual disponible de dicho paquete es %d", tipoPaquete, tipoPaquete.cantidadDisponible);
+                + "actual disponible de dicho paquete es %d"
+                , tipoPaquete, tipoPaquete.cantidadDisponible);
     }
 }
