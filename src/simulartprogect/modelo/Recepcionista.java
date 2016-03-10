@@ -3,17 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package buyingsimulator.modelo;
+package simulartprogect.modelo;
 
 /**
  *
  * @author Irene Argollo
  */
-public class Contratista implements Funcionario{
+public class Recepcionista implements Funcionario{
 
     @Override
     public void atender(Cliente cliente) {
-        //de aca se rescata el tipo de paquete y la cantidad de paquetes que desea comprar
+        //Dar  informacion al cliente durante determinado tiempo que depende del tipo de cliente
+        //al finalizar la atencion el cliente deberia tener en mente cual es el paquete qe desea
     }
 
     @Override

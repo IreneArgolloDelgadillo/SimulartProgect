@@ -3,13 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package buyingsimulator.modelo;
+package simulartprogect;
 
 /**
  *
  * @author Irene Argollo
  */
-public interface Funcionario {
-  public void atender(Cliente cliente) ;
-  public void recibirNotificacion(Cliente cliente);
+public class BuyingSimulator {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+    }
+    
 }

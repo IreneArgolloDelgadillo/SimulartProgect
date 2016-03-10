@@ -1,7 +1,9 @@
+package simulartprogect.generadoresaleatorios;
 
-import buyingsimulator.modelo.Cliente;
-import buyingsimulator.modelo.Cliente.Tipo;
-import buyingsimulator.modelo.Funcionario;
+
+import simulartprogect.modelo.Cliente;
+import simulartprogect.modelo.Cliente.Tipo;
+import simulartprogect.modelo.Funcionario;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -15,12 +17,12 @@ import java.util.Random;
  *
  * @author Irene Argollo
  */
-public class Dispensador {
+public class GeneradorDeClientes {
 
     private int ci;
     private List<Funcionario> oyentes;
 
-    public Dispensador() {
+    public GeneradorDeClientes() {
         oyentes = new ArrayList<>();
     }
 
