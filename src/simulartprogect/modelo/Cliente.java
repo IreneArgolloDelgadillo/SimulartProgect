@@ -5,9 +5,6 @@
  */
 package simulartprogect.modelo;
 
-import java.awt.geom.Point2D;
-
-
 /**
  *
  * @author Irene Argollo
@@ -30,6 +27,7 @@ public class Cliente {
             return r_normal;
         }
     }
+
     private final Tipo tipoCliente;
     private final int ci;
 

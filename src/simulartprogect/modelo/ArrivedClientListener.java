@@ -9,7 +9,6 @@ package simulartprogect.modelo;
  *
  * @author Irene Argollo
  */
-public interface Funcionario {
-    public boolean estaDisponible();
-    public void atender(Cliente cliente);
+public interface ArrivedClientListener {
+    public void notificarLlegada(Cliente cliente);
 }

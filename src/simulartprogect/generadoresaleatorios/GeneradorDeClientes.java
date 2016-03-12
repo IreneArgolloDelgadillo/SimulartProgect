@@ -3,10 +3,10 @@ package simulartprogect.generadoresaleatorios;
 
 import simulartprogect.modelo.Cliente;
 import simulartprogect.modelo.Cliente.Tipo;
-import simulartprogect.modelo.Funcionario;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import simulartprogect.modelo.ArrivedClientListener;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,7 +20,7 @@ import java.util.Random;
 public class GeneradorDeClientes {
 
     private int ci;
-    private List<Funcionario> oyentes;
+    private List<ArrivedClientListener> oyentes;
 
     public GeneradorDeClientes() {
         oyentes = new ArrayList<>();
@@ -36,12 +36,12 @@ public class GeneradorDeClientes {
 
     public void notificar(Cliente cliente) {
         oyentes.stream().forEach(oyente -> {
-            oyente.recibirNotificacion(cliente);
+            oyente.notificarLlegada(cliente);
         });
     }
 
-    public void addOyentes(Funcionario funcionario) {
-        oyentes.add(funcionario);
+    public void addOyentes(ArrivedClientListener seccion) {
+        oyentes.add(seccion);
     }
 
     private Tipo generarTipoCliente(double random) {
