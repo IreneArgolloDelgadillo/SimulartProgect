@@ -5,6 +5,7 @@
  */
 package simulartprogect.modelo;
 
+import simulartprogect.modelo.funcionarios.Funcionario;
 import java.util.ArrayList;
 import java.util.List;
 

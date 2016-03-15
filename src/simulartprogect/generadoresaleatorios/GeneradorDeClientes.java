@@ -6,7 +6,7 @@ import simulartprogect.modelo.Cliente.Tipo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import simulartprogect.modelo.ArrivedClientListener;
+import simulartprogect.modelo.OyenteDeLlegadaDeCliente;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,7 +20,7 @@ import simulartprogect.modelo.ArrivedClientListener;
 public class GeneradorDeClientes {
 
     private int ci;
-    private List<ArrivedClientListener> oyentes;
+    private List<OyenteDeLlegadaDeCliente> oyentes;
 
     public GeneradorDeClientes() {
         oyentes = new ArrayList<>();
@@ -40,7 +40,7 @@ public class GeneradorDeClientes {
         });
     }
 
-    public void addOyentes(ArrivedClientListener seccion) {
+    public void addOyentes(OyenteDeLlegadaDeCliente seccion) {
         oyentes.add(seccion);
     }
 

@@ -9,6 +9,6 @@ package simulartprogect.modelo;
  *
  * @author Irene Argollo
  */
-public interface ArrivedClientListener {
+public interface OyenteDeLlegadaDeCliente {
     public void notificarLlegada(Cliente cliente);
 }

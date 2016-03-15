@@ -12,7 +12,7 @@ import java.util.Queue;
  *
  * @author Irene Argollo
  */
-public class ColaDeEspera implements ArrivedClientListener {
+public class ColaDeEspera implements OyenteDeLlegadaDeCliente{ 
 
     private Queue<Cliente> clientes;
 

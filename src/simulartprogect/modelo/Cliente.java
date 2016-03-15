@@ -41,6 +41,7 @@ public class Cliente {
     }
 
     public void consultarPaquetes() {
+        
     }
 
     public void hacerContrato() {
