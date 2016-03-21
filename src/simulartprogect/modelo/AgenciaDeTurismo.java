@@ -14,7 +14,7 @@ import simulartprogect.modelo.AdministradorDePaquete.Tipo;
  */
 public class AgenciaDeTurismo {
 
-    public static final String nombre = "Caxia Tours";
+    public static final String NOMBRE = "Caxia Tours";
     private AdministradorDePaquete administradorDePaquetes;
 
     public AgenciaDeTurismo() {

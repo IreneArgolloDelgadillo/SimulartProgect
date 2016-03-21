@@ -11,6 +11,35 @@ package simulartprogect.modelo;
  */
 public class Cliente {
 
+    private final int ci;
+    private final Tipo tipoCliente;
+
+    public Cliente(Tipo tipo, int ci) {
+        tipoCliente = tipo;
+        this.ci = ci;
+    }
+
+    public Tipo getTipo() {
+        return tipoCliente;
+    }
+
+    public int getCi() {
+        return ci;
+    }
+
+    public Tipo getTipoCliente() {
+        return tipoCliente;
+    }
+
+    public void consultarPaquetes() {
+    }
+
+    public void hacerContrato() {
+    }
+
+    public void cancelar() {
+    }
+    
     public enum Tipo {
         ESTUDIANTE(new Rango(0d, 0.15)),
         DEPORTISTA(new Rango(0.15, 0.35)),
@@ -28,25 +57,4 @@ public class Cliente {
         }
     }
 
-    private final Tipo tipoCliente;
-    private final int ci;
-
-    public Cliente(Tipo tipo, int ci) {
-        tipoCliente = tipo;
-        this.ci = ci;
-    }
-
-    public Tipo getTipo() {
-        return tipoCliente;
-    }
-
-    public void consultarPaquetes() {
-        
-    }
-
-    public void hacerContrato() {
-    }
-
-    public void cancelar() {
-    }
 }

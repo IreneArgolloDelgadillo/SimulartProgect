@@ -11,13 +11,12 @@ import simulartprogect.modelo.Cliente;
  *
  * @author Irene Argollo 
  */
-public class Recepcionista implements Funcionario{
+public class Recepcionista extends Funcionario{
 
-    @Override
-    public boolean estaDisponible() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Recepcionista(int code) {
+        super(code);
     }
-
+    
     @Override
     public void atender(Cliente cliente) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

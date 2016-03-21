@@ -9,18 +9,20 @@ import simulartprogect.modelo.Cliente;
 
 /**
  *
- * @author Irene Argollo 
+ * @author Irene Argollo
  */
-public class Contratista implements Funcionario{
+public class Contratista extends Funcionario {
 
-    @Override
-    public boolean estaDisponible() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Contratista(int code) {
+        super(code);
     }
 
     @Override
     public void atender(Cliente cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        super.cambiarDisponibilidad();
+        cliente.consultarPaquetes();
+        System.err.println(String.format("Se esta atendiendo al cliente %d", cliente.getCi()));
+        super.cambiarDisponibilidad();
     }
-    
+
 }

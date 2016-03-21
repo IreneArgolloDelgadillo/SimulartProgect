@@ -11,25 +11,17 @@ import simulartprogect.modelo.Cliente;
  *
  * @author Irene Argollo
  */
-public class Cajero implements Funcionario{
-
-    private final int cod;
-    private boolean disponible;
+public class Cajero extends Funcionario {
 
     public Cajero(int codigo) {
-        cod = codigo;
-    }
-    
-    @Override
-    public boolean estaDisponible() {
-        return disponible;
+        super(codigo);
     }
 
     @Override
     public void atender(Cliente cliente) {
-        if(!disponible) {
+        if (disponible) {
             cliente.cancelar();
         }
     }
-    
+
 }
