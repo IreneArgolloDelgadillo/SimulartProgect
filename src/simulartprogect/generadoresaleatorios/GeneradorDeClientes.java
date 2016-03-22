@@ -45,11 +45,11 @@ public class GeneradorDeClientes {
     }
 
     private Tipo generarTipoCliente(double random) {
-        if (Tipo.ESTUDIANTE.getR_Normal().contiene(random)) {
+        if (Tipo.ESTUDIANTE.getRangoProbabilidadDeLlegada().contiene(random)) {
             return Tipo.ESTUDIANTE;
-        } else if (Tipo.DEPORTISTA.getR_Normal().contiene(random)) {
+        } else if (Tipo.DEPORTISTA.getRangoProbabilidadDeLlegada().contiene(random)) {
             return Tipo.DEPORTISTA;
-        } else if (Tipo.TURISTA_NACIONAL.getR_Normal().contiene(random)) {
+        } else if (Tipo.TURISTA_NACIONAL.getRangoProbabilidadDeLlegada().contiene(random)) {
             return Tipo.TURISTA_NACIONAL;
         } else {
             return Tipo.TURISTA_EXTRANGERO;

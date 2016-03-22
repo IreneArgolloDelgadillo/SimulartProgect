@@ -19,7 +19,7 @@ public class Recepcionista extends Funcionario{
     
     @Override
     public void atender(Cliente cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("informacion respecto a paquetes de tipo(s)...");
     }
     
 }
