@@ -6,6 +6,7 @@
 package simulartprogect.modelo.funcionarios;
 
 import simulartprogect.modelo.Cliente;
+import simulartprogect.modelo.Seccion;
 
 /**
  *
@@ -14,11 +15,13 @@ import simulartprogect.modelo.Cliente;
 public abstract class Funcionario {
 
     protected boolean disponible;
+    protected Seccion seccionSupervisora;
     private final int code;
-
-    Funcionario(int code) {
+    
+    Funcionario(int code, Seccion seccion) {
         this.code = code;
         disponible = true;
+        seccionSupervisora = seccion;
     }
 
     public boolean estaDisponible() {

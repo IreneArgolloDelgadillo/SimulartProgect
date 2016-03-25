@@ -6,6 +6,7 @@
 package simulartprogect.modelo.funcionarios;
 
 import simulartprogect.modelo.Cliente;
+import simulartprogect.modelo.Seccion;
 
 /**
  *
@@ -13,8 +14,8 @@ import simulartprogect.modelo.Cliente;
  */
 public class Cajero extends Funcionario {
 
-    public Cajero(int codigo) {
-        super(codigo);
+    public Cajero(int codigo, Seccion seccion) {
+        super(codigo, seccion);
     }
 
     @Override

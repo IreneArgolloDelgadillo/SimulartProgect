@@ -15,19 +15,19 @@ import java.util.List;
  */
 public class AdministradorDePaquete {
 
-    private final List<Tipo> tiposDePaquetes;
+    private final List<TipoPaquete> tiposDePaquetes;
 
     public AdministradorDePaquete() {
         tiposDePaquetes = new ArrayList<>();
-        tiposDePaquetes.add(Tipo.LOCAL);
-        tiposDePaquetes.add(Tipo.DEPORTIVOS);
-        tiposDePaquetes.add(Tipo.EXCURCIONES);
+        tiposDePaquetes.add(TipoPaquete.LOCAL);
+        tiposDePaquetes.add(TipoPaquete.DEPORTIVOS);
+        tiposDePaquetes.add(TipoPaquete.EXCURCIONES);
     }
 
-    public int cantidadDisponible(Tipo tipo) {
+    public int cantidadDisponible(TipoPaquete tipo) {
         int disponible = 0;
 
-        for (Tipo t : tiposDePaquetes) {
+        for (TipoPaquete t : tiposDePaquetes) {
             if (t.equals(tipo)) {
                 return t.getCantidadDisponible();
             }
@@ -35,8 +35,8 @@ public class AdministradorDePaquete {
         return disponible;
     }
 
-    public boolean verificarDisponibilidadDePaquete(Tipo tipo, int cantidad) {
-        for (Tipo tipoPaquete : tiposDePaquetes) {
+    public boolean verificarDisponibilidadDePaquete(TipoPaquete tipo, int cantidad) {
+        for (TipoPaquete tipoPaquete : tiposDePaquetes) {
             if (tipoPaquete.equals(tipo)) {
                 return tipoPaquete.verificarDisponibilidad(cantidad);
             }
@@ -44,7 +44,7 @@ public class AdministradorDePaquete {
         return false;
     }
 
-    public void comprarPaquete(HashMap<Tipo, Integer> pedidos) {
+    public void comprarPaquete(HashMap<TipoPaquete, Integer> pedidos) {
         tiposDePaquetes.stream().forEach((tipo) -> {
             if (pedidos.containsKey(tipo)) {
                 tipo.reportarVenta(pedidos.get(tipo));
@@ -52,7 +52,11 @@ public class AdministradorDePaquete {
         });
     }
 
-    public enum Tipo {
+    public List<TipoPaquete> getPaquetesDisponibles() {
+        return tiposDePaquetes;
+    }
+
+    public enum TipoPaquete {
         LOCAL(100, 350),
         DEPORTIVOS(100, 300),
         EXCURCIONES(100, 50);
@@ -61,7 +65,7 @@ public class AdministradorDePaquete {
         public final long presio;
         private int cantidadDisponible;
 
-        private Tipo(int stok, long presio) {
+        private TipoPaquete(int stok, long presio) {
             cantidadInicial = stok;
             this.presio = presio;
             cantidadDisponible = stok;

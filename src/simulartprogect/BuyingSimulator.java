@@ -5,6 +5,8 @@
  */
 package simulartprogect;
 
+import simulartprogect.modelo.AgenciaDeTurismo;
+
 /**
  *
  * @author Irene Argollo
@@ -15,7 +17,8 @@ public class BuyingSimulator {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        AgenciaDeTurismo agencia = new AgenciaDeTurismo();
+        
     }
     
 }

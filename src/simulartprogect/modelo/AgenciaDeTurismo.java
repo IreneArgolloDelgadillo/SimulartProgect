@@ -6,7 +6,9 @@
 package simulartprogect.modelo;
 
 import java.util.HashMap;
-import simulartprogect.modelo.AdministradorDePaquete.Tipo;
+import java.util.List;
+import simulartprogect.modelo.AdministradorDePaquete.TipoPaquete;
+import simulartprogect.modelo.simuladores.SimuladorDeLlegada;
 
 /**
  *
@@ -16,16 +18,18 @@ public class AgenciaDeTurismo {
 
     public static final String NOMBRE = "Caxia Tours";
     private AdministradorDePaquete administradorDePaquetes;
+    private List<Seccion> seccionesDeAtencion;
+    private SimuladorDeLlegada simulador;
 
     public AgenciaDeTurismo() {
         administradorDePaquetes = new AdministradorDePaquete();
     }
 
-    public int disponibles(Tipo tipo) {
+    public int disponibles(TipoPaquete tipo) {
         return administradorDePaquetes.cantidadDisponible(tipo);
     }
 
-    public void descontar(HashMap<Tipo, Integer> pedidos) {
+    public void descontar(HashMap<TipoPaquete, Integer> pedidos) {
         administradorDePaquetes.comprarPaquete(pedidos);
     }
 

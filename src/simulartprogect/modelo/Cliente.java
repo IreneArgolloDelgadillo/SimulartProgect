@@ -5,7 +5,10 @@
  */
 package simulartprogect.modelo;
 
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
+import simulartprogect.modelo.AdministradorDePaquete.TipoPaquete;
 
 /**
  *
@@ -15,7 +18,7 @@ public class Cliente {
 
     private final int ci;
     private final Tipo tipoCliente;
-    private Map<AdministradorDePaquete.Tipo, Integer> paquetes;
+    private Map<TipoPaquete, Integer> paquetes;
 
     public Cliente(Tipo tipo, int ci) {
         tipoCliente = tipo;
@@ -30,21 +33,25 @@ public class Cliente {
         return ci;
     }
 
-    public void consultarPaquetes() {
+    public void consultarPaquetes(Map<TipoPaquete, Integer> paquetesDeInteres) {
+        this.paquetes = paquetesDeInteres;
     }
 
-    public void hacerContrato() {
+    public void hacerContrato(Map<TipoPaquete, Integer> paquetesAComprar) {
+        Random random = new Random();
+        paquetes = tomarDecision(paquetesAComprar) ? paquetesAComprar : new HashMap<>();
+        System.out.println("Se esta acordando comprar los paquetes:");
     }
 
     public void cancelar() {
     }
 
-    public void setPaquetesinteresados(Map<AdministradorDePaquete.Tipo, Integer> paquetesDeInteres) {
-        this.paquetes = paquetesDeInteres;
+    public Map<TipoPaquete, Integer> getPaquetes() {
+        return paquetes;
     }
 
-    public Map<AdministradorDePaquete.Tipo, Integer> getPaquetes() {
-        return paquetes;
+    private boolean tomarDecision(Map<TipoPaquete, Integer> paquetesAComprar) {
+        return paquetesAComprar.size() > 0;
     }
 
     public enum Tipo {

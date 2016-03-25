@@ -5,21 +5,31 @@
  */
 package simulartprogect.modelo.funcionarios;
 
+import java.util.List;
+import simulartprogect.generadoresaleatorios.GeneradorDePaquetes;
+import simulartprogect.modelo.AdministradorDePaquete.TipoPaquete;
 import simulartprogect.modelo.Cliente;
+import simulartprogect.modelo.Seccion;
 
 /**
  *
- * @author Irene Argollo 
+ * @author Irene Argollo
  */
-public class Recepcionista extends Funcionario{
+public class Recepcionista extends Funcionario {
 
-    public Recepcionista(int code) {
-        super(code);
+    private GeneradorDePaquetes generadorAleatorio;
+    private List<TipoPaquete> paquetesDisponibles;
+
+    public Recepcionista(int code, Seccion seccion) {
+        super(code, seccion);
+        paquetesDisponibles = seccionSupervisora
+                              .getAdministradorDePaquetes().getPaquetesDisponibles();
     }
-    
+
     @Override
     public void atender(Cliente cliente) {
+        cliente.consultarPaquetes(generadorAleatorio.generarPaquetes(paquetesDisponibles, cliente));
         System.out.println("informacion respecto a paquetes de tipo(s)...");
     }
-    
+
 }

@@ -13,11 +13,12 @@ import java.util.List;
  *
  * @author Irene Argollo
  */
-public class Seccion extends Thread{
+public class Seccion extends Thread {
 
     private final TipoDeOperacion operacion;
-    private List<Funcionario> funcionarios;
+    private final List<Funcionario> funcionarios;
     private ColaDeEspera colaDeEspera;
+    private AdministradorDePaquete administradorDePaquetes;
 
     public Seccion(TipoDeOperacion operacion) {
         this.operacion = operacion;
@@ -27,15 +28,27 @@ public class Seccion extends Thread{
     public void aniadirFuncionario(Funcionario funcionario) {
         funcionarios.add(funcionario);
     }
-    
+
     public void quitarFuncionario(Funcionario funcionario) {
         funcionarios.remove(funcionario);
+    }
+
+    public void setAdministradorDePaquetes(AdministradorDePaquete administradorDePaquetes) {
+        this.administradorDePaquetes = administradorDePaquetes;
+    }
+
+    public TipoDeOperacion getOperacion() {
+        return operacion;
+    }
+
+    public AdministradorDePaquete getAdministradorDePaquetes() {
+        return administradorDePaquetes;
     }
 
     @Override
     public void run() {
         funcionarios.stream().forEach(funcionario -> {
-            if(funcionario.estaDisponible()) {
+            if (funcionario.estaDisponible()) {
                 funcionario.atender(colaDeEspera.siguienteCliente());
             }
         });

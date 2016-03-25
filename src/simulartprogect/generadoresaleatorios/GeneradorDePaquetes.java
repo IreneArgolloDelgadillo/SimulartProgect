@@ -9,8 +9,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import simulartprogect.modelo.AdministradorDePaquete.Tipo;
+import simulartprogect.modelo.AdministradorDePaquete.TipoPaquete;
 import simulartprogect.modelo.Cliente;
+import simulartprogect.modelo.Cliente.Tipo;
 
 /**
  *
@@ -18,45 +19,40 @@ import simulartprogect.modelo.Cliente;
  */
 public class GeneradorDePaquetes {
 
-    private final Cliente cliente;
-    private final Cliente.Tipo tipoCliente;
     private final Random generador;
 
-    public GeneradorDePaquetes(Cliente cliente) {
-        tipoCliente = cliente.getTipo();
-        this.cliente = cliente;
+    public GeneradorDePaquetes() {
         generador = new Random();
     }
 
-    public Tipo generarTipo() {
+    public TipoPaquete generarTipo(Tipo tipoCliente) {
         double random = generador.nextDouble();
         if (tipoCliente.getR_probTipoLoc().contiene(random)) {
-            return Tipo.LOCAL;
+            return TipoPaquete.LOCAL;
         } else if (tipoCliente.getR_probTipoDep().contiene(random)) {
-            return Tipo.DEPORTIVOS;
+            return TipoPaquete.DEPORTIVOS;
         } else {
-            return Tipo.EXCURCIONES;
+            return TipoPaquete.EXCURCIONES;
         }
     }
 
-    public Map<Tipo, Integer> generarPaquetes(List<Tipo> paquetesDisponibles) {
-        Map<Tipo, Integer> paquetesDeInteres = new HashMap<>();
+    public Map<TipoPaquete, Integer> generarPaquetes(List<TipoPaquete> paquetesDisponibles, Cliente cliente) {
+        Map<TipoPaquete, Integer> paquetesDeInteres = new HashMap<>();
         boolean verMasPaquetes = true;
         while (verMasPaquetes) {
             int cantidad = generador.nextInt();
-            Tipo tipoPaquete = generarTipo();
+            TipoPaquete tipoPaquete = generarTipo(cliente.getTipo());
             paquetesDeInteres.put(tipoPaquete, cantidad);
             verMasPaquetes = generador.nextBoolean();
         }
-        cliente.setPaquetesinteresados(paquetesDeInteres);
         return paquetesDeInteres;
     }
 
-    public Map<Tipo, Integer> definirPaquetes() {
-        Map<Tipo, Integer> paquetesAComprar = cliente.getPaquetes();
-        paquetesAComprar.keySet().stream().filter((tipo) -> {
-            return generador.nextBoolean();
-        }).forEach(paquetesAComprar::remove);
+    public Map<TipoPaquete, Integer> definirPaquetes(Cliente cliente) {
+        Map<TipoPaquete, Integer> paquetesAComprar = cliente.getPaquetes();
+        paquetesAComprar.keySet().stream().filter((tipo) -> (generador.nextBoolean())).forEach((tipo) -> {
+            paquetesAComprar.remove(tipo);
+        });
         return paquetesAComprar;
     }
 }

@@ -5,7 +5,9 @@
  */
 package simulartprogect.modelo.funcionarios;
 
+import simulartprogect.generadoresaleatorios.GeneradorDePaquetes;
 import simulartprogect.modelo.Cliente;
+import simulartprogect.modelo.Seccion;
 
 /**
  *
@@ -13,15 +15,19 @@ import simulartprogect.modelo.Cliente;
  */
 public class Contratista extends Funcionario {
 
-    public Contratista(int code) {
-        super(code);
+    private final GeneradorDePaquetes generadorAleatorio;
+    
+    public Contratista(int code, Seccion seccion) {
+        super(code, seccion);
+        generadorAleatorio = new GeneradorDePaquetes();
+        
     }
 
     @Override
     public void atender(Cliente cliente) {
         super.cambiarDisponibilidad();
-        cliente.consultarPaquetes();
-        System.err.println(String.format("Se esta atendiendo al cliente %d", cliente.getCi()));
+        cliente.hacerContrato(generadorAleatorio.definirPaquetes(cliente));
+        System.out.println(String.format("Se esta atendiendo al cliente %d", cliente.getCi()));
         super.cambiarDisponibilidad();
     }
 

@@ -3,11 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/I:/workspace/SimulartProgect/src/buyingsimulator/BuyingSimulator.java</file>
-            <file>file:/I:/workspace/SimulartProgect/src/buyingsimulator/modelo/Funcionario.java</file>
-            <file>file:/I:/workspace/SimulartProgect/src/buyingsimulator/modelo/Recepcionista.java</file>
-            <file>file:/I:/workspace/SimulartProgect/src/buyingsimulator/modelo/Cajero.java</file>
-            <file>file:/I:/workspace/SimulartProgect/src/buyingsimulator/modelo/Contratista.java</file>
+            <file>file:/D:/workspace/SimulartProgect/src/simulartprogect/modelo/funcionarios/Recepcionista.java</file>
+            <file>file:/D:/workspace/SimulartProgect/src/simulartprogect/modelo/funcionarios/Contratista.java</file>
+            <file>file:/D:/workspace/SimulartProgect/src/simulartprogect/generadoresaleatorios/GeneradorDePaquetes.java</file>
+            <file>file:/D:/workspace/SimulartProgect/src/simulartprogect/modelo/ColaDeEspera.java</file>
+            <file>file:/D:/workspace/SimulartProgect/src/simulartprogect/modelo/Seccion.java</file>
+            <file>file:/D:/workspace/SimulartProgect/src/simulartprogect/generadoresaleatorios/FrecuenciaDeLLegada.java</file>
+            <file>file:/D:/workspace/SimulartProgect/src/simulartprogect/modelo/simuladores/SimuladorDeLlegada.java</file>
+            <file>file:/D:/workspace/SimulartProgect/src/simulartprogect/modelo/funcionarios/Cajero.java</file>
+            <file>file:/D:/workspace/SimulartProgect/src/simulartprogect/modelo/funcionarios/Funcionario.java</file>
+            <file>file:/D:/workspace/SimulartProgect/src/simulartprogect/BuyingSimulator.java</file>
         </group>
     </open-files>
 </project-private>
