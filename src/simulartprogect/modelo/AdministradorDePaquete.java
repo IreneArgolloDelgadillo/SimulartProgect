@@ -6,8 +6,8 @@
 package simulartprogect.modelo;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -44,7 +44,7 @@ public class AdministradorDePaquete {
         return false;
     }
 
-    public void comprarPaquete(HashMap<TipoPaquete, Integer> pedidos) {
+    public void comprarPaquete(Map<TipoPaquete, Integer> pedidos) {
         tiposDePaquetes.stream().forEach((tipo) -> {
             if (pedidos.containsKey(tipo)) {
                 tipo.reportarVenta(pedidos.get(tipo));

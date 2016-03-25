@@ -38,9 +38,15 @@ public class Cliente {
     }
 
     public void hacerContrato(Map<TipoPaquete, Integer> paquetesAComprar) {
+        String reporte;
         Random random = new Random();
-        paquetes = tomarDecision(paquetesAComprar) ? paquetesAComprar : new HashMap<>();
-        System.out.println("Se esta acordando comprar los paquetes:");
+        if(tomarDecision(paquetesAComprar)){
+            paquetes = paquetesAComprar;
+            System.out.print("El cliente se dirige a la caja de pagos para cancelar");
+        } else {
+            paquetes = new HashMap<>();
+            System.out.println("El cliente rechazo el contrato de compra. Se dirige a la puerta de salida");
+        }
     }
 
     public void cancelar() {

@@ -20,9 +20,8 @@ public class Cajero extends Funcionario {
 
     @Override
     public void atender(Cliente cliente) {
-        if (disponible) {
-            cliente.cancelar();
-        }
+        cliente.cancelar();
+        seccionSupervisora.getAdministradorDePaquetes().comprarPaquete(cliente.getPaquetes());
     }
 
 }
