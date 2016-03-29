@@ -21,12 +21,12 @@ public class TiempoEntreLlegadas {
      int res;
      if(cliente.equals("Deportista"))
      {
-       media = 20*60000;
+       media = 30000;
       }
      else if(cliente.equals("Turista Nacional"))
-     {media = 15*60000;}
-     else if(cliente.equals("Turista Extranjero")){media = 30*60000;}
-     else if(cliente.equals("Estudiante")){media = 35*60000;}
+     {media = 15000;}
+     else if(cliente.equals("Turista Extranjero")){media = 30000;}
+     else if(cliente.equals("Estudiante")){media = 60000;}
      else{System.out.println("error");}
    
      return res = tiempo.obtenerDE(media);
