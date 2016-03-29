@@ -8,6 +8,7 @@ package simulartprogect.modelo.simuladores;
 import java.util.logging.Logger;
 import simulartprogect.generadoresaleatorios.GeneradorDeClientes;
 import simulartprogect.generadoresaleatorios.FrecuenciaDeLLegada;
+import simulartprogect.modelo.Cliente.Tipo;
 
 /**
  *
@@ -15,8 +16,14 @@ import simulartprogect.generadoresaleatorios.FrecuenciaDeLLegada;
  */
 public class SimuladorDeLlegada extends Thread {
 
-    private GeneradorDeClientes generadorDeClientes;
+    private final GeneradorDeClientes generadorDeClientes;
+    private final FrecuenciaDeLLegada tiempo;
     private boolean estaHabilitado;
+
+    public SimuladorDeLlegada() {
+        this.generadorDeClientes = new GeneradorDeClientes();
+        this.tiempo = new FrecuenciaDeLLegada();
+    }
 
     public void desactivar() {
         estaHabilitado = false;
@@ -24,14 +31,14 @@ public class SimuladorDeLlegada extends Thread {
 
     @Override
     public void run() {
-        FrecuenciaDeLLegada tiempo = new FrecuenciaDeLLegada();
+        Tipo cliente;
         while (estaHabilitado) {
-            generadorDeClientes.generarCliente();
+            cliente = generadorDeClientes.generarCliente();
             try {
-                sleep(tiempo.siguienteTiempoDellegada());
+                sleep(tiempo.obtenerTiempo(cliente));
             } catch (InterruptedException execepcion) {
                 Logger.getLogger(GeneradorDeClientes.class.getName(),
-                                    execepcion.getMessage());
+                        execepcion.getMessage());
             }
         }
     }

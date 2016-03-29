@@ -19,19 +19,22 @@ import simulartprogect.modelo.OyenteDeLlegadaDeCliente;
  */
 public class GeneradorDeClientes {
 
+    private final DistribucionNormal distNormal;
     private int ci;
     private List<OyenteDeLlegadaDeCliente> oyentes;
 
     public GeneradorDeClientes() {
+        distNormal = new DistribucionNormal();
         oyentes = new ArrayList<>();
     }
 
-    public void generarCliente() {
+    public Tipo generarCliente() {
         ci = +1;
         Random r = new Random();
         Tipo tipoCliente = generarTipoCliente(r.nextDouble());
         Cliente cliente = new Cliente(tipoCliente, ci);
         notificar(cliente);
+        return cliente.getTipo();
     }
 
     public void notificar(Cliente cliente) {
