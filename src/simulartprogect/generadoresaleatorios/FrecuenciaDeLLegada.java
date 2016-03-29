@@ -14,11 +14,12 @@ import simulartprogect.modelo.Cliente.Tipo;
  */
 public class FrecuenciaDeLLegada{
 
-    DistribucionExponencial tiempo = new DistribucionExponencial();
+   
 
     @SuppressWarnings("ConvertToStringSwitch")
     public int obtenerTiempo(Tipo cliente) {
         //1 hora es equivalente a 60000
+        DistribucionExponencial tiempo = new DistribucionExponencial();
         int media = 0;
         int res;
         if (cliente.equals(Tipo.DEPORTISTA)) {
