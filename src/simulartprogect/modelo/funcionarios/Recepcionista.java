@@ -9,7 +9,7 @@ import java.util.List;
 import simulartprogect.generadoresaleatorios.GeneradorDePaquetes;
 import simulartprogect.modelo.AdministradorDePaquete.TipoPaquete;
 import simulartprogect.modelo.Cliente;
-import simulartprogect.modelo.Seccion;
+import simulartprogect.modelo.secciones.Seccion;
 
 /**
  *

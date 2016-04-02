@@ -3,26 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package simulartprogect.modelo;
+package simulartprogect.modelo.secciones;
 
 import simulartprogect.modelo.funcionarios.Funcionario;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
+import simulartprogect.modelo.AdministradorDePaquete;
+import simulartprogect.modelo.ColaDeEspera;
 
 /**
  *
  * @author Irene Argollo
  */
-public class Seccion extends Thread {
+public abstract class Seccion extends Thread {
 
-    private final TipoDeOperacion operacion;
-    private final List<Funcionario> funcionarios;
-    private ColaDeEspera colaDeEspera;
-    private AdministradorDePaquete administradorDePaquetes;
+    protected final List<Funcionario> funcionarios;
+    protected final AdministradorDePaquete administradorDePaquetes;
+    protected ColaDeEspera colaDeEspera;
+    protected ImageIcon icon ;
 
-    public Seccion(TipoDeOperacion operacion) {
-        this.operacion = operacion;
+    protected Seccion(AdministradorDePaquete administradorP) {
         funcionarios = new ArrayList<>();
+        administradorDePaquetes = administradorP;
     }
 
     public void aniadirFuncionario(Funcionario funcionario) {
@@ -31,14 +34,6 @@ public class Seccion extends Thread {
 
     public void quitarFuncionario(Funcionario funcionario) {
         funcionarios.remove(funcionario);
-    }
-
-    public void setAdministradorDePaquetes(AdministradorDePaquete administradorDePaquetes) {
-        this.administradorDePaquetes = administradorDePaquetes;
-    }
-
-    public TipoDeOperacion getOperacion() {
-        return operacion;
     }
 
     public AdministradorDePaquete getAdministradorDePaquetes() {
@@ -53,4 +48,12 @@ public class Seccion extends Thread {
             }
         });
     }
+
+    public int getCantidadFuncionarios() {
+        return funcionarios.size();
+    }
+    
+    public abstract void contratar(int cantidad) ;
+    
+    public abstract ImageIcon getIcon();
 }

@@ -6,7 +6,7 @@
 package simulartprogect.modelo.funcionarios;
 
 import simulartprogect.modelo.Cliente;
-import simulartprogect.modelo.Seccion;
+import simulartprogect.modelo.secciones.Seccion;
 
 /**
  *

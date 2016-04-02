@@ -5,9 +5,10 @@
  */
 package simulartprogect.modelo;
 
-import java.util.HashMap;
-import java.util.List;
-import simulartprogect.modelo.AdministradorDePaquete.TipoPaquete;
+import simulartprogect.modelo.secciones.Seccion;
+import simulartprogect.modelo.secciones.CajaDePagos;
+import simulartprogect.modelo.secciones.Contratos;
+import simulartprogect.modelo.secciones.Informaciones;
 import simulartprogect.modelo.simuladores.SimuladorDeLlegada;
 
 /**
@@ -17,20 +18,40 @@ import simulartprogect.modelo.simuladores.SimuladorDeLlegada;
 public class AgenciaDeTurismo {
 
     public static final String NOMBRE = "Caxia Tours";
-    private AdministradorDePaquete administradorDePaquetes;
-    private List<Seccion> seccionesDeAtencion;
+    private final AdministradorDePaquete administradorDePaquetes;
+    private final Seccion seccionInfomaciones;
+    private final Seccion seccionContratos;
+    private final Seccion seccionCaja;
     private SimuladorDeLlegada simulador;
 
-    public AgenciaDeTurismo() {
+    public AgenciaDeTurismo(int informaciones, int contratistas, int cajas) {
+        
         administradorDePaquetes = new AdministradorDePaquete();
+        
+        seccionInfomaciones = new Informaciones(administradorDePaquetes);
+        seccionInfomaciones.contratar(informaciones);
+        
+        seccionContratos = new Contratos(administradorDePaquetes);
+        seccionContratos.contratar(contratistas);
+        
+        seccionCaja = new CajaDePagos(administradorDePaquetes);
+        seccionCaja.contratar(cajas);
     }
 
-    public int disponibles(TipoPaquete tipo) {
-        return administradorDePaquetes.cantidadDisponible(tipo);
+    public AdministradorDePaquete getAdministradorDePaquetes() {
+        return administradorDePaquetes;
     }
 
-    public void descontar(HashMap<TipoPaquete, Integer> pedidos) {
-        administradorDePaquetes.comprarPaquete(pedidos);
+    public Seccion getSeccionInfomaciones() {
+        return seccionInfomaciones;
+    }
+
+    public Seccion getSeccionContratos() {
+        return seccionContratos;
+    }
+
+    public Seccion getSeccionCaja() {
+        return seccionCaja;
     }
 
 }

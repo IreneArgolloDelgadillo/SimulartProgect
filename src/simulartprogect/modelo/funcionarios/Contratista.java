@@ -7,7 +7,7 @@ package simulartprogect.modelo.funcionarios;
 
 import simulartprogect.generadoresaleatorios.GeneradorDePaquetes;
 import simulartprogect.modelo.Cliente;
-import simulartprogect.modelo.Seccion;
+import simulartprogect.modelo.secciones.Seccion;
 
 /**
  *
